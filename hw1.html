@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The State of Social Media in 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F4F8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: #073B4C;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFD166;
+            line-height: 1.1;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-top: 0.5rem;
+        }
+        .flowchart-arrow {
+            font-size: 2.5rem;
+            color: #118AB2;
+            font-weight: 900;
+            align-self: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#073B4C] mb-2">The State of Social Media</h1>
+            <p class="text-xl md:text-2xl font-semibold text-[#118AB2]">A 2025 Snapshot of Platforms, People, and Performance</p>
+        </header>
+
+        <section id="overview" class="mb-12">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="kpi-card shadow-lg">
+                    <div class="kpi-value">5.31B</div>
+                    <div class="kpi-label">Global Active Users</div>
+                </div>
+                <div class="kpi-card shadow-lg">
+                    <div class="kpi-value">64.7%</div>
+                    <div class="kpi-label">Of World Population</div>
+                </div>
+                <div class="kpi-card shadow-lg">
+                    <div class="kpi-value">2h 21m</div>
+                    <div class="kpi-label">Average Daily Time Spent</div>
+                </div>
+            </div>
+            <p class="text-center mt-6 text-lg text-gray-600 max-w-4xl mx-auto">The digital world is more connected than ever, with social media now a near-universal part of online life. This massive allocation of human attention has transformed platforms into primary hubs for communication, entertainment, and commerce.</p>
+        </section>
+
+        <section id="leaderboard" class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-center mb-1 text-[#073B4C]">Platform Leaderboard</h2>
+                <p class="text-center text-gray-600 mb-6">Facebook remains the largest network, but a few powerful ecosystems from Meta, Alphabet, and ByteDance dominate the landscape.</p>
+                <div class="chart-container h-[500px] md:h-[600px] max-h-[700px]">
+                    <canvas id="leaderboardChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="deep-dive" class="mb-12">
+            <h2 class="text-2xl font-bold text-center mb-1 text-[#073B4C]">Platform Demographics: A Closer Look</h2>
+            <p class="text-center text-gray-600 mb-8">Each platform caters to a unique audience. Understanding their distinct demographic profiles is key to effective strategy.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-center mb-4 text-[#073B4C]">Facebook Audience</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="chart-container h-64 max-h-64">
+                             <canvas id="facebookGenderChart"></canvas>
+                        </div>
+                        <div class="flex flex-col justify-center text-center md:text-left">
+                            <p class="text-gray-700"><strong class="text-[#118AB2]">The Global Colossus:</strong> Facebook's mature user base makes it the definitive platform for reaching Millennials and older generations, with a notable male skew globally.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                         <h4 class="text-lg font-semibold text-center mb-2 text-[#073B4C]">Age Distribution</h4>
+                         <div class="chart-container h-32 max-h-32">
+                            <canvas id="facebookAgeChart"></canvas>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-center mb-4 text-[#073B4C]">YouTube Audience</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="chart-container h-64 max-h-64">
+                             <canvas id="youtubeGenderChart"></canvas>
+                        </div>
+                        <div class="flex flex-col justify-center text-center md:text-left">
+                            <p class="text-gray-700"><strong class="text-[#118AB2]">The Universal Entertainer:</strong> YouTube's most remarkable feature is its universal appeal, demonstrating exceptionally strong engagement across all age groups.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                         <h4 class="text-lg font-semibold text-center mb-2 text-[#073B4C]">Age Distribution</h4>
+                         <div class="chart-container h-32 max-h-32">
+                            <canvas id="youtubeAgeChart"></canvas>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-center mb-4 text-[#073B4C]">Instagram Audience</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="chart-container h-64 max-h-64">
+                             <canvas id="instagramGenderChart"></canvas>
+                        </div>
+                        <div class="flex flex-col justify-center text-center md:text-left">
+                            <p class="text-gray-700"><strong class="text-[#118AB2]">The Cultural Trendsetter:</strong> Instagram is a stronghold for younger audiences and boasts one of the most balanced gender distributions of any major platform.</p>
+                        </div>
+                    </div>
+                     <div class="mt-6">
+                         <h4 class="text-lg font-semibold text-center mb-2 text-[#073B4C]">Age Distribution</h4>
+                         <div class="chart-container h-32 max-h-32">
+                            <canvas id="instagramAgeChart"></canvas>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-center mb-4 text-[#073B4C]">TikTok Audience</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="chart-container h-64 max-h-64">
+                             <canvas id="tiktokGenderChart"></canvas>
+                        </div>
+                         <div class="flex flex-col justify-center text-center md:text-left">
+                             <p class="text-gray-700"><strong class="text-[#118AB2]">The Entertainment Engine:</strong> Once a Gen Z-dominated app, TikTok's audience has matured significantly, making Millennials its largest user cohort.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                         <h4 class="text-lg font-semibold text-center mb-2 text-[#073B4C]">Age Distribution</h4>
+                         <div class="chart-container h-32 max-h-32">
+                            <canvas id="tiktokAgeChart"></canvas>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trends" class="mb-12">
+            <h2 class="text-2xl font-bold text-center mb-1 text-[#073B4C]">The Four Forces Shaping 2025</h2>
+            <p class="text-center text-gray-600 mb-8">These interconnected trends define the modern social media experience and create a powerful feedback loop.</p>
+             <div class="flex flex-col items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-3 text-[#FF6B6B]">🎬</div>
+                        <h3 class="text-xl font-bold mb-2 text-[#073B4C]">1. The Pivot to Video</h3>
+                        <p class="text-gray-700">Video is the default language of social media. Short-form content drives discovery, while a resurgence in long-form caters to a demand for deeper storytelling.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-3 text-[#FFD166]">🛒</div>
+                        <h3 class="text-xl font-bold mb-2 text-[#073B4C]">2. Social as Search & Storefront</h3>
+                        <p class="text-gray-700">Younger generations increasingly use platforms like TikTok for search, while integrated shopping features have dissolved the barrier between content and commerce.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-3 text-[#06D6A0]">🤖</div>
+                        <h3 class="text-xl font-bold mb-2 text-[#073B4C]">3. The AI Revolution</h3>
+                        <p class="text-gray-700">From hyper-personalized "For You" feeds to creator-assistance tools and chatbot customer service, AI is a visible, transformative force shaping the entire experience.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-3 text-[#118AB2]">❤️</div>
+                        <h3 class="text-xl font-bold mb-2 text-[#073B4C]">4. The Quest for Authenticity</h3>
+                        <p class="text-gray-700">In response to polished feeds, users are drawn to raw, unfiltered content and niche communities, demanding a more genuine connection with brands and creators.</p>
+                    </div>
+                </div>
+
+                <div class="flowchart-arrow mt-4 mb-4 transform rotate-90 md:rotate-0">➡️</div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center max-w-md">
+                    <div class="text-5xl mb-3 text-[#073B4C]">🔁</div>
+                    <h3 class="text-xl font-bold mb-2 text-[#073B4C]">The Feedback Loop</h3>
+                    <p class="text-gray-700">AI enhances video discovery, which powers social commerce. This saturation drives users to seek authentic communities, creating a cycle that constantly redefines strategy.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-gray-500">Source: The State of Social Media, 2025: A Strategic Analysis. All data represents the global landscape as of early 2025.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const palette = {
+                vibrantRed: '#FF6B6B',
+                yellow: '#FFD166',
+                green: '#06D6A0',
+                blue: '#118AB2',
+                darkBlue: '#073B4C',
+                white: '#FFFFFF',
+                lightGray: '#F0F4F8'
+            };
+
+            const globalChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: palette.darkBlue,
+                            font: {
+                                weight: '600'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            function wrapLabel(str, maxWidth) {
+                if (str.length <= maxWidth) {
+                    return str;
+                }
+                const words = str.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxWidth) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            }
+
+            const leaderboardData = {
+                platforms: ["Facebook", "YouTube", "WhatsApp", "Instagram", "TikTok", "WeChat", "Telegram", "FB Messenger", "Snapchat", "Reddit", "X (Twitter)", "Pinterest"],
+                users: [3070, 2600, 2500, 2000, 1715, 1380, 1000, 956, 875, 712, 574, 553]
+            };
+
+            const leaderboardCtx = document.getElementById('leaderboardChart').getContext('2d');
+            new Chart(leaderboardCtx, {
+                type: 'bar',
+                data: {
+                    labels: leaderboardData.platforms,
+                    datasets: [{
+                        label: 'Monthly Active Users (in Millions)',
+                        data: leaderboardData.users,
+                        backgroundColor: [palette.blue, palette.vibrantRed, palette.green, palette.darkBlue, palette.yellow, palette.blue, palette.vibrantRed, palette.darkBlue, palette.yellow, palette.green, palette.blue, palette.vibrantRed],
+                        borderColor: 'rgba(255, 255, 255, 0.5)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...globalChartOptions,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: { color: palette.darkBlue },
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        y: {
+                            ticks: { color: palette.darkBlue, font: { weight: '600' } },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        ...globalChartOptions.plugins,
+                         legend: { display: false }
+                    }
+                }
+            });
+
+            const platformDemographics = {
+                facebook: {
+                    gender: [56.8, 43.2],
+                    age: [23, 31.1, 45.9] 
+                },
+                youtube: {
+                    gender: [54, 46],
+                    age: [18, 21.7, 60.3]
+                },
+                instagram: {
+                    gender: [50.6, 49.4],
+                    age: [31.7, 28.3, 40]
+                },
+                tiktok: {
+                    gender: [55.7, 44.3],
+                    age: [30.7, 35.3, 34]
+                }
+            };
+            const ageLabels = ['18-24', '25-34', '35+'];
+
+            function createGenderChart(canvasId, data, platformName) {
+                const ctx = document.getElementById(canvasId).getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Male', 'Female'],
+                        datasets: [{
+                            data: data,
+                            backgroundColor: [palette.blue, palette.vibrantRed],
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        ...globalChartOptions,
+                        cutout: '60%'
+                    }
+                });
+            }
+            
+            function createAgeChart(canvasId, data, platformName) {
+                const ctx = document.getElementById(canvasId).getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [platformName],
+                        datasets: [
+                            { label: '18-24', data: [data[0]], backgroundColor: palette.yellow },
+                            { label: '25-34', data: [data[1]], backgroundColor: palette.green },
+                            { label: '35+', data: [data[2]], backgroundColor: palette.vibrantRed }
+                        ]
+                    },
+                    options: {
+                        ...globalChartOptions,
+                        indexAxis: 'y',
+                        scales: {
+                            x: { stacked: true, max: 100, grid: { display: false }, ticks: { display: false } },
+                            y: { stacked: true, grid: { display: false }, ticks: { display: false } }
+                        },
+                        plugins: {
+                            ...globalChartOptions.plugins,
+                             tooltip: {
+                                ...globalChartOptions.plugins.tooltip,
+                                callbacks: {
+                                    ...globalChartOptions.plugins.tooltip.callbacks,
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        label += context.raw.toFixed(1) + '%';
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            createGenderChart('facebookGenderChart', platformDemographics.facebook.gender, 'Facebook');
+            createGenderChart('youtubeGenderChart', platformDemographics.youtube.gender, 'YouTube');
+            createGenderChart('instagramGenderChart', platformDemographics.instagram.gender, 'Instagram');
+            createGenderChart('tiktokGenderChart', platformDemographics.tiktok.gender, 'TikTok');
+            
+            createAgeChart('facebookAgeChart', platformDemographics.facebook.age, 'Facebook');
+            createAgeChart('youtubeAgeChart', platformDemographics.youtube.age, 'YouTube');
+            createAgeChart('instagramAgeChart', platformDemographics.instagram.age, 'Instagram');
+            createAgeChart('tiktokAgeChart', platformDemographics.tiktok.age, 'TikTok');
+        });
+    </script>
+</body>
+</html>
